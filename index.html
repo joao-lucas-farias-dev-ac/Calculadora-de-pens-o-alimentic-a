@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de pensão alimenticía</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          background-color: rgb(11, 161, 73);
+        }
+    
+        h1 {
+          margin-top: 50px;
+        }
+    
+        form {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-top: 50px;
+          padding: 20px;
+          background-color: rgb(200, 219, 205);
+          border-radius: 10px;
+          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    
+        label {
+          margin-top: 20px;
+        }
+    
+        input[type="text"] {
+          width: 50px;
+          height: 30px;
+          font-size: 16px;
+          margin-top: 10px;
+          padding-left: 10px;
+          border-radius: 5px;
+          border: 1px solid lightgray;
+        }
+    
+        button {
+          width: 150px;
+          height: 40px;
+          font-size: 16px;
+          margin-top: 20px;
+          background-color: dodgerblue;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    
+        button:hover {
+          background-color: deepskyblue;
+        }
+    
+        #resultado {
+          margin-top: 50px;
+          font-size: 20px;
+          font-weight: bold;
+        }
+
+        footer {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+      </style>
+</head>
+<body>
+    <h1>Calculadora de Pensão Alimentícia</h1>
+    <form>
+      <label for="salario">Salário do pagador:</label>
+      <input type="text" id="salario" name="salario"><br><br>
+      <label for="num_filhos">Número de filhos:</label>
+      <input type="text" id="num_filhos" name="num_filhos"><br><br>
+      <label for="porcentagem">Porcentagem do salário para pensão:</label>
+      <input type="text" id="porcentagem" name="porcentagem"><br><br>
+    </form>
+    <button onclick="calculate()">Calcular</button>
+    <p id="resultado"></p>
+
+    <script>
+      function calculate() {
+        var salario = document.querySelector("#salario").value;
+        var num_filhos = document.querySelector("#num_filhos").value;
+        var porcentagem = document.querySelector("#porcentagem").value;
+        var pensao = (salario * porcentagem) / 100
+        pensao = pensao * num_filhos;
+        document.querySelector("#resultado").innerHTML = "A pensão alimentícia a ser paga será de R$ " + pensao;
+      }
+    </script>
+    <footer>
+        <h1>©Criado por João Lucas Farias Rodrigues</h1>
+        </footer>
+  </body>
+</html>
